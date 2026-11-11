@@ -20,9 +20,9 @@ seedbed:[['React + Capacitor','Web / Android experience'],['Python REST API + CL
 datakul:[['Browser learning app','Quests · Library · AI tutor'],['Retrieval layer','Keyword / semantic matching'],['Cloudflare Worker','Prompt gateway + API secrets'],['LLM providers + D1','AI answers · shared library']],
 hodlr:[['Android shell / PWA','Market and portfolio screens'],['Market data services','Prices · charts · news'],['On-device portfolio','Holdings · alerts · settings'],['Reporting tools','Analytics · tax estimates']],
 nelabele:[['Flutter app','Android + web · MapLibre'],['Neon Data API','Read-only endpoints'],['Postgres + PostGIS','Rates · guidance · geospatial'],['Python ingestion','Guidance extracts via GitHub Actions']],
-shorelessdev:[['Browser interface','Today · Browse · Pipeline'],['Flask application','Filtering and job aggregation'],['Hiring APIs + remote feeds','Greenhouse · Lever · Ashby + more'],['Browser storage','Saved roles · applications']]}
-,'done-and-dusted':[['Vite + JavaScript UI','Tasks · Plan · Dashboard · Import'],['Core + Dexie storage','Date parsing · recurrence · offline data'],['Capacitor platform layer','Android native shell · speech · haptics'],['Notification adapters','Native scheduled reminders · web alerts']]
-;
+shorelessdev:[['Browser interface','Today · Browse · Pipeline'],['Flask application','Filtering and job aggregation'],['Hiring APIs + remote feeds','Greenhouse · Lever · Ashby + more'],['Browser storage','Saved roles · applications']]},
+'done-and-dusted':[['Vite + JavaScript UI','Tasks · Plan · Dashboard · Import'],['Core + Dexie storage','Date parsing · recurrence · offline data'],['Capacitor platform layer','Android native shell · speech · haptics'],['Notification adapters','Native scheduled reminders · web alerts']]
+};
 const caseStudies={
 datakul:{problem:'Make data engineering and analytics learning approachable, with practice and grounded AI help.',decision:'Use a browser-first learning experience with a Cloudflare Worker gateway, reviewed library retrieval and provider fallback.',tradeoff:'Free-tier AI availability varies, so the learning library and quests also work without an AI gateway.'},
 seedbed:{problem:'Provide realistic, repeatable data engineering exercises rather than pristine toy datasets.',decision:'Build a seeded Python generation engine shared by CLI, REST API and React/Capacitor clients, with DuckDB SQL and client-side Pyodide Python.',tradeoff:'Browser-side Python reduces server execution risk but requires additional client downloads.'},
