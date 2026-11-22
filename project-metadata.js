@@ -90,6 +90,59 @@ const projects = {
         "Android",
         "GitHub Actions"
       ]
+    },
+    "tradeprint": {
+      "description": "An offline-first trading journal for reviewing trades, importing Dhan and Zerodha tradebooks, measuring trading habits and generating optional BYOK AI reviews. Private Google Drive app-data sync is optional.",
+      "stack": [
+        "JavaScript",
+        "PWA",
+        "IndexedDB",
+        "Google Drive API",
+        "Claude",
+        "OpenAI",
+        "Gemini",
+        "Node.js"
+      ]
+    },
+    "reachloop": {
+      "description": "An Instagram workflow companion for photographers and product workspaces: create branded carousels, plan posts, prepare reels, inspect reach signals and learn from manually logged results.",
+      "stack": [
+        "JavaScript",
+        "PWA",
+        "IndexedDB",
+        "Cloudflare Pages",
+        "Cloudflare Functions",
+        "Gemini",
+        "Claude Artifacts",
+        "WebCodecs"
+      ]
+    },
+    "annotated": {
+      "description": "Transforms YouTube tutorials into structured study guides with insights, action checklists, sourced links, transcript-grounded Q&A, flashcards, quizzes and export formats.",
+      "stack": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Chrome Extension MV3",
+        "IndexedDB",
+        "Gemini",
+        "GitHub Pages",
+        "SM-2"
+      ]
+    },
+    "trove": {
+      "description": "A native Android personal AI memory hub for capturing shared content, screenshots and voice notes, organising local collections, reviewing expenses and asking multiple AI models about saved memories.",
+      "stack": [
+        "Kotlin",
+        "Jetpack Compose",
+        "Room",
+        "SQLite",
+        "ML Kit OCR",
+        "WorkManager",
+        "Gemini",
+        "OpenAI",
+        "Perplexity"
+      ]
     }
   },
   "topology": {
@@ -390,6 +443,178 @@ const projects = {
           3
         ]
       ]
+    },
+    "tradeprint": {
+      "nodes": [
+        [
+          "PWA screens",
+          "Log, trades, dashboard, calendar and insights"
+        ],
+        [
+          "Trade analysis engine",
+          "Charges, CSV pairing, strategies and performance"
+        ],
+        [
+          "IndexedDB store",
+          "Trades, journal, settings and screenshots"
+        ],
+        [
+          "Optional Drive sync",
+          "OAuth and private app-data merge"
+        ],
+        [
+          "Optional AI review",
+          "Direct browser calls to BYOK LLM providers"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "reachloop": {
+      "nodes": [
+        [
+          "Installable PWA",
+          "Create, grid, plan, reels and reach check"
+        ],
+        [
+          "IndexedDB + share target",
+          "Offline posts, settings and gallery imports"
+        ],
+        [
+          "Cloudflare Pages Function",
+          "Passcode-protected AI proxy"
+        ],
+        [
+          "Gemini / optional fallback",
+          "Captions, concepts and reach suggestions"
+        ],
+        [
+          "Claude artifact runtime",
+          "Alternative synced artifact experience"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    "annotated": {
+      "nodes": [
+        [
+          "YouTube MV3 extension",
+          "Video metadata and best-effort captions"
+        ],
+        [
+          "Study-guide web app",
+          "Understand, Act and Retain views"
+        ],
+        [
+          "Gemini extraction + web check",
+          "Structured analysis and source-grounded updates"
+        ],
+        [
+          "IndexedDB library",
+          "Saved guides, notes and review queue"
+        ],
+        [
+          "Export / review",
+          "Markdown, Anki, Obsidian and spaced repetition"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    "trove": {
+      "nodes": [
+        [
+          "Android capture surfaces",
+          "Share sheet, floating key, quick tile and voice"
+        ],
+        [
+          "ML Kit OCR",
+          "On-device screenshot and receipt text extraction"
+        ],
+        [
+          "Room / SQLite",
+          "Memories, collections, expenses and suggestions"
+        ],
+        [
+          "Mind Pilot",
+          "Ask / agent modes across BYOK providers"
+        ],
+        [
+          "WorkManager digest",
+          "Scheduled suggestions from recent memories"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ]
     }
   },
   "architectures": {
@@ -518,6 +743,78 @@ const projects = {
         "Notification adapters",
         "Native scheduled reminders · web alerts"
       ]
+    ],
+    "tradeprint": [
+      [
+        "Browser PWA",
+        "Quick log, dashboard, calendar, insights"
+      ],
+      [
+        "Pure JS modules",
+        "Tradebook parsing, charges and analytics"
+      ],
+      [
+        "IndexedDB + sync",
+        "Local journal, screenshots and optional Drive"
+      ],
+      [
+        "BYOK AI review",
+        "Direct provider requests and saved reviews"
+      ]
+    ],
+    "reachloop": [
+      [
+        "PWA / Claude artifact",
+        "Two runtimes for planning and creating posts"
+      ],
+      [
+        "Local workspace store",
+        "Per-account posts, brand settings and results"
+      ],
+      [
+        "Cloudflare AI function",
+        "Server-side Gemini key and passcode gate"
+      ],
+      [
+        "Export + Instagram share",
+        "Slides, MP4 reels and native share sheet"
+      ]
+    ],
+    "annotated": [
+      [
+        "YouTube capture",
+        "Extension transfers metadata and transcript"
+      ],
+      [
+        "Analysis pipeline",
+        "Gemini extraction, link checks and timestamps"
+      ],
+      [
+        "Study library",
+        "IndexedDB guides, notes and search"
+      ],
+      [
+        "Retention workflow",
+        "SM-2 flashcards, quiz and exports"
+      ]
+    ],
+    "trove": [
+      [
+        "Kotlin + Compose",
+        "Native Android capture and memory screens"
+      ],
+      [
+        "ML Kit + SpeechRecognizer",
+        "Local OCR and voice transcription"
+      ],
+      [
+        "Room persistence",
+        "On-device memory, receipts and collections"
+      ],
+      [
+        "Mind Pilot + WorkManager",
+        "Optional multi-model reasoning and daily digest"
+      ]
     ]
   },
   "caseStudies": {
@@ -555,6 +852,26 @@ const projects = {
       "problem": "Make daily and weekly task planning reliable on a phone, including offline use, repeat schedules and timely reminders, without requiring an account.",
       "decision": "Share framework-free JavaScript modules between a Vite PWA and a Capacitor Android app; keep task data in IndexedDB via Dexie, separate pure task logic from platform adapters, and use native local notifications for closed-app reminders.",
       "tradeoff": "Local-only data avoids a backend and account system but does not sync across devices; users transfer JSON backups. Browser reminders are more limited when the web app is closed, and exact Android alarms may require additional permission."
+    },
+    "tradeprint": {
+      "problem": "Help a trader discover which setups and habits improve or damage performance, without requiring a hosted trading account.",
+      "decision": "Keep the journal local-first in IndexedDB, isolate analytics and tradebook parsing in testable JavaScript modules, and make Drive sync and provider-key AI review opt-in.",
+      "tradeoff": "Single-user local storage protects autonomy but requires backup or optional OAuth sync. Broker imports are not yet validated against real exports, and estimated charges differ from actual broker charges."
+    },
+    "reachloop": {
+      "problem": "Help photographers and small brands post consistently and learn from results without requiring a full marketing platform.",
+      "decision": "Ship a single-file offline-capable PWA with separate workspaces, plus a Cloudflare Pages Function that keeps the Gemini API key server-side; retain a Claude-artifact runtime for its native AI and storage features.",
+      "tradeoff": "AI availability depends on configured secrets and providers. Insights are entered manually, and automated Instagram Graph API retrieval and publishing remain roadmap items."
+    },
+    "annotated": {
+      "problem": "Turn passive tutorial watching into usable knowledge, practical actions and long-term retention.",
+      "decision": "Use a static single-page app and MV3 extension, split extraction from web verification, and ground quotes and timestamps in available transcripts before saving guides for spaced-repetition review.",
+      "tradeoff": "YouTube caption extraction is best-effort and can fail. AI analysis requires a user-supplied Gemini key; transcript-only basic extraction is available without one."
+    },
+    "trove": {
+      "problem": "Capture fragmented personal information across Android apps and turn it into searchable memories and useful follow-up suggestions.",
+      "decision": "Build Android-native capture entry points and local OCR around a Room database, keeping memories on-device while allowing user-supplied keys for optional Gemini, OpenAI and Perplexity reasoning.",
+      "tradeoff": "System overlays and screen capture require explicit Android permissions. External AI calls are optional but send selected context to providers; the repository documents local storage rather than cross-device synchronization."
     }
   }
 };
