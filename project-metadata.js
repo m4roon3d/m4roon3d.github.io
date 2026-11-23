@@ -1,5 +1,5 @@
 /* Reviewed project metadata. Keep project keys consistent across all four registries.
-   Topology edges are conceptual relationships indexed into nodes. */
+   Edit visibility.hidden to hide projects from the published portfolio. */
 (()=>{
 const projects = {
   "details": {
@@ -142,6 +142,32 @@ const projects = {
         "Gemini",
         "OpenAI",
         "Perplexity"
+      ]
+    },
+    "repwise": {
+      "description": "A local-first AI workout coach that logs sets, recommends progressive overload, builds multi-week training blocks and answers fitness questions using a user-provided Gemini key.",
+      "stack": [
+        "React 19",
+        "Vite",
+        "JavaScript",
+        "Gemini API",
+        "PWA",
+        "Vitest",
+        "Local Storage"
+      ]
+    },
+    "skyband": {
+      "description": "A location-aware world radio player that combines an interactive globe and maps with searchable live radio stations, resilient streaming playback and ambient listening features.",
+      "stack": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "D3",
+        "Leaflet",
+        "Radio Browser API",
+        "hls.js",
+        "GitHub Pages",
+        "Node.js"
       ]
     }
   },
@@ -615,6 +641,90 @@ const projects = {
           4
         ]
       ]
+    },
+    "repwise": {
+      "nodes": [
+        [
+          "React / Vite PWA",
+          "Workout plans, logs, coach and exercise library"
+        ],
+        [
+          "Local training state",
+          "Profile, workouts, logs and backups"
+        ],
+        [
+          "Progression engine",
+          "Offline double-progression suggestions"
+        ],
+        [
+          "Gemini AI coach",
+          "BYOK plans, Q&A and optional photo form checks"
+        ],
+        [
+          "Exercise animation UI",
+          "Parametric exercise demonstrations"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    "skyband": {
+      "nodes": [
+        [
+          "Single-page radio UI",
+          "Floating search dock and player"
+        ],
+        [
+          "Interactive maps",
+          "D3 globe, Leaflet street/satellite and day/night"
+        ],
+        [
+          "Radio Browser API",
+          "Nearby and worldwide station discovery"
+        ],
+        [
+          "Stream playback",
+          "Native HLS / hls.js with stall recovery"
+        ],
+        [
+          "Static GitHub Pages",
+          "Test-gated deployment with no backend"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          0
+        ]
+      ]
     }
   },
   "architectures": {
@@ -815,6 +925,42 @@ const projects = {
         "Mind Pilot + WorkManager",
         "Optional multi-model reasoning and daily digest"
       ]
+    ],
+    "repwise": [
+      [
+        "React + Vite PWA",
+        "Personal coach, workout log and exercise library"
+      ],
+      [
+        "Local progression logic",
+        "Offline rep targets and load suggestions"
+      ],
+      [
+        "Gemini BYOK integration",
+        "Coach chat, plan generation and photo form help"
+      ],
+      [
+        "Exercise animations",
+        "20 animation patterns across 68 exercises"
+      ]
+    ],
+    "skyband": [
+      [
+        "Static HTML / JavaScript app",
+        "Search, map modes, playback and explore"
+      ],
+      [
+        "D3 + Leaflet map layer",
+        "Globe, flat, street and satellite views"
+      ],
+      [
+        "Radio Browser + stream player",
+        "Station search, HLS playback and failover"
+      ],
+      [
+        "GitHub Actions + Pages",
+        "Automated tests before static deployment"
+      ]
     ]
   },
   "caseStudies": {
@@ -872,7 +1018,20 @@ const projects = {
       "problem": "Capture fragmented personal information across Android apps and turn it into searchable memories and useful follow-up suggestions.",
       "decision": "Build Android-native capture entry points and local OCR around a Room database, keeping memories on-device while allowing user-supplied keys for optional Gemini, OpenAI and Perplexity reasoning.",
       "tradeoff": "System overlays and screen capture require explicit Android permissions. External AI calls are optional but send selected context to providers; the repository documents local storage rather than cross-device synchronization."
+    },
+    "repwise": {
+      "problem": "Make personalised training plans and progression tracking accessible without an account or hosted fitness backend.",
+      "decision": "Use a React/Vite installable PWA with offline progression logic, on-device training history and opt-in Gemini coaching through the user's own API key.",
+      "tradeoff": "AI coaching and photo analysis require a configured external API and transmit selected inputs to Gemini. Local-first data requires user-managed backups rather than automatic cross-device synchronization."
+    },
+    "skyband": {
+      "problem": "Make radio discovery feel geographic and exploratory while keeping live playback dependable.",
+      "decision": "Use a single static HTML app with D3 and Leaflet map views, the public Radio Browser directory, browser-native audio and HLS fallback, plus a stream stall guard.",
+      "tradeoff": "No backend or API keys simplifies deployment, but station availability and stream quality depend on external providers. Location-aware discovery requires browser permission and HTTPS."
     }
+  },
+  "visibility": {
+    "hidden": []
   }
 };
 window.PORTFOLIO_PROJECTS = projects;
