@@ -20,7 +20,7 @@ vm.runInNewContext(metadata, context, { filename: 'project-metadata.js' });
 const registry = context.window.PORTFOLIO_PROJECTS;
 assert.ok(registry, 'Metadata did not initialize');
 const names = Object.keys(registry.details);
-assert.ok(names.length >= 11, 'Unexpected project count');
+assert.ok(names.length >= 13, 'Unexpected project count');
 for (const name of names) {
   for (const section of ['details', 'topology', 'architectures', 'caseStudies']) {
     assert.ok(registry[section]?.[name], name + ': missing ' + section);
@@ -37,9 +37,13 @@ for (const name of names) {
   const c = registry.caseStudies[name];
   assert.ok(c.problem && c.decision && c.tradeoff, name + ': incomplete decisions');
 }
-for (const name of ['tradeprint', 'reachloop', 'annotated', 'trove', 'done-and-dusted']) {
+for (const name of ['tradeprint', 'reachloop', 'annotated', 'trove', 'done-and-dusted', 'repwise', 'skyband']) {
   assert.ok(names.includes(name), 'Required project missing: ' + name);
 }
+assert.ok(Array.isArray(registry.visibility?.hidden), 'Visibility.hidden must be an array');
+assert.equal(new Set(registry.visibility.hidden).size, registry.visibility.hidden.length, 'Duplicate hidden project');
+assert.ok(registry.visibility.hidden.every(n => typeof n === 'string' && n.length), 'Invalid hidden project name');
+assert.match(html, /hiddenProjects\.has\(r\.name\)/, 'Site-wide visibility filter missing');
 assert.match(html, /function all\(\)/, 'Project listing renderer missing');
 assert.match(html, /render\(\);/, 'Initial project render missing');
 console.log('Showcase validation passed: ' + names.length + ' complete project profiles and inline script syntax.');
