@@ -47,3 +47,13 @@ assert.match(html, /hiddenProjects\.has\(r\.name\)/, 'Site-wide visibility filte
 assert.match(html, /function all\(\)/, 'Project listing renderer missing');
 assert.match(html, /render\(\);/, 'Initial project render missing');
 console.log('Showcase validation passed: ' + names.length + ' complete project profiles and inline script syntax.');
+
+const admin = fs.readFileSync('admin.html', 'utf8');
+const adminScript = admin.match(/<script>([\s\S]*?)<\/script>/);
+assert.ok(adminScript, 'Admin script missing');
+new vm.Script(adminScript[1], { filename: 'admin.html' });
+assert.match(html, /href="admin\.html"/, 'Admin link missing');
+assert.match(admin, /user\.login\.toLowerCase\(\)!==owner/, 'Owner check missing');
+assert.match(admin, /method:'PUT'/, 'Publish action missing');
+assert.doesNotMatch(admin, /localStorage|sessionStorage/, 'Admin must not persist credentials');
+console.log('Project manager syntax and authorization checks passed.');
