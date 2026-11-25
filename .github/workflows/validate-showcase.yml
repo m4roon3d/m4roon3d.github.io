@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'index.html'
+      - 'admin.html'
       - 'project-metadata.js'
       - 'scripts/validate-showcase.cjs'
       - '.github/workflows/validate-showcase.yml'
